@@ -21,7 +21,7 @@ app.use("/api/login", LoginUser);
 app.use("/api/register", RegisterUser);
 app.use("/api/all-events", allEvent);
 app.use("/api/admin-users-portal", AdminUsersEndpoint);
-app.use("/api/category-events", ClubEvents);
+app.use("/api/category-events", CategoryEvents);
 
 //Homepage Endpoint
 app.get("/", (request, response) => {

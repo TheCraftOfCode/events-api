@@ -1,4 +1,3 @@
-const Joi = require("joi");
 const mongoose = require("mongoose");
 
 const EventSchema = mongoose.Schema({
@@ -29,6 +28,7 @@ const EventSchema = mongoose.Schema({
   },
   StarCount: {
     type: Number,
+    default: 0,
   },
   Category: {
     type: String,

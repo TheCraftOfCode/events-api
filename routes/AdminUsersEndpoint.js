@@ -4,7 +4,6 @@ const _ = require("lodash");
 const AuthenticateUser = require("../middleware/AuthenticateUser");
 const CheckAdminUser = require("../middleware/AuthAdminUser");
 const { Events } = require("../models/Events");
-const { Club } = require("../models/club");
 
 router.get(
   "/",
@@ -15,7 +14,7 @@ router.get(
     var SelectedAttributedForCardView = [];
     AllEvents.forEach((event) => {
       SelectedAttributedForCardView.push(
-        _.pick(event, ["_id", "ImageUrl", "Title", "OrganizingClub", "Date"])
+        _.pick(event, ["_id", "ImageUrl", "Title", "Category", "Date"])
       );
     });
     return response.status(200).send(SelectedAttributedForCardView);
@@ -46,14 +45,11 @@ router.post(
     const event = new Events({
       ImageUrl: request.body.ImageUrl,
       Title: request.body.Title,
-      Caption: request.body.Caption,
       Description: request.body.Description,
-      OrganizingClub: request.body.OrganizingClub,
-      Date: request.body.Date,
-      Venue: request.body.Venue,
+      Category: request.body.OrganizingClub,
+      location: request.body.Venue,
       RegistrationLink: request.body.RegistrationLink,
-      Note: request.body.Note,
-      ContactDetails: request.body.ContactDetails,
+      Prerequisites: request.body.Prerequisites,
     });
 
     const StatusSave = await event.save();
@@ -76,25 +72,6 @@ router.delete(
       return response.status(400).send("Sorry..! .Event Not found...!");
 
     response.status(200).send(DeleteEvent);
-  }
-);
-
-//creating a new club
-
-router.post(
-  "/createClub",
-  [AuthenticateUser, CheckAdminUser],
-  async (request, response) => {
-    const NewClub = new Club({
-      ClubImageUrl: request.body.ClubImageUrl,
-      ClubName: request.body.ClubName,
-      ClubDescription: request.body.ClubDescription,
-      InstaHandle: request.body.InstaHandle,
-    });
-
-    const StatusSave = await NewClub.save();
-
-    response.status(200).send(NewClub);
   }
 );
 
