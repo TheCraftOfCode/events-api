@@ -1,7 +1,5 @@
 const { Events } = require("../models/Events");
 
-const { Club } = require("../models/club");
-
 const Express = require("express");
 const _ = require("lodash");
 const router = Express.Router();
@@ -11,24 +9,29 @@ const AuthenticateUser = require("../middleware/AuthenticateUser");
 const RedirectAdminUser = require("../middleware/RedirectAdminUser");
 
 router.get("/", AuthenticateUser, async (request, response) => {
-  const Clubs = await Club.find({});
-  console.log(Clubs);
+  const Events = await Events.find({});
 
-  response.status(200).send(Clubs);
+  const cateories = [];
+  Events.forEach((event) => {
+    if (!categories.includes(event.Category)) {
+      clubs.push(event.Category);
+    }
+  });
+
+  response.status(200).send(categories);
 });
 
 router.get(
-  "/fetchEvents/:ClubName",
+  "/fetchEvents/:Category",
   AuthenticateUser,
   async (request, response) => {
-    const ClubName = request.params.ClubName;
-    const EventsConductedByClub = await Events.find({
-      OrganizingClub: ClubName,
+    const Category = request.params.Category;
+    const EventsConductedCategory = await Events.find({
+      Category: Category,
     });
 
     //for debugging purposes
-    console.log(EventsConductedByClub);
-    response.status(200).send(EventsConductedByClub);
+    response.status(200).send(EventsConductedCategory);
   }
 );
 

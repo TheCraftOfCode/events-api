@@ -4,6 +4,10 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 const UserSchema = mongoose.Schema({
+  ImageProfile: {
+    type: String,
+    required: true,
+  },
   Name: {
     type: String,
     required: true,
@@ -30,7 +34,8 @@ const UserSchema = mongoose.Schema({
     unique: true,
   },
   phone: String,
-
+  StartedEventNames: [String],
+  RsvpEventNames: [String],
   isAdmin: {
     type: Boolean,
     default: false,

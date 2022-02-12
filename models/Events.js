@@ -1,6 +1,6 @@
 const Joi = require("joi");
 const mongoose = require("mongoose");
-const { Contacts } = require("../models/ContactDetails");
+
 const EventSchema = mongoose.Schema({
   ImageUrl: {
     type: String,
@@ -10,23 +10,16 @@ const EventSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  Caption: {
-    type: String,
-    required: true,
-  },
   Description: {
-    type: String,
-    required: true,
-  },
-  OrganizingClub: {
     type: String,
     required: true,
   },
   Date: {
     type: Date,
+    default: Date.now,
     required: true,
   },
-  Venue: {
+  location: {
     type: String,
     required: true,
   },
@@ -34,15 +27,22 @@ const EventSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  Note: {
+  StarCount: {
+    type: Number,
+  },
+  Category: {
     type: String,
   },
-  ContactDetails: {
-    type: [Contacts],
+  lastedited: {
+    type: Date,
+    default: Date.now,
   },
-  // Status: {
-  //   type: String,
-  //   enum: ["Completed", "Upcoming", "Ongoing"],
+  Prerequisites: {
+    type: String,
+  },
+  // },
+  // ContactDetails: {
+  //   type: [Contacts],
   // },
 });
 
