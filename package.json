@@ -1,0 +1,32 @@
+{
+  "name": "amrita-events-api",
+  "version": "1.0.0",
+  "description": "Backend Rest Api for Amrita Events Android",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheCraftOfCode/node-amrita-events-api.git"
+  },
+  "author": "sridhar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TheCraftOfCode/node-amrita-events-api/issues"
+  },
+  "homepage": "https://github.com/TheCraftOfCode/node-amrita-events-api#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "joi": "^17.4.2",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^5.13.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
