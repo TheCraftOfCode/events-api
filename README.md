@@ -1,4 +1,4 @@
-# Project: Amrita-Events-Api
+# Project: Events-Api
 
 Backend Rest API for Amrita Events Android App.
 
@@ -6,7 +6,7 @@ Backend Rest API for Amrita Events Android App.
 
 ### Description:
 
-### Welcome Page of Amrita Events Api. Never Used. (For Testing Purposes)
+### Welcome Page of Events Api. Never Used. (For Testing Purposes)
 
 ### Endpoint: `/`
 
